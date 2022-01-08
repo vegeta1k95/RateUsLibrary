@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rate_us_title">Did you like the app?</string>
+    <string name="rate_us_body">Let us know what you think</string>
+    <string name="rate_us_hint">Best thanks to us</string>
+    <string name="rate_us_thanks">Thanks for feedback!</string>
+    <string name="rate_us_later">Later</string>
+    <string name="rate_us_rate">Rate</string>
+</resources>

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="rate_us_title">Did you like the app?</string>
-    <string name="rate_us_body">Let us know what you think</string>
-    <string name="rate_us_hint">Best thanks to us</string>
-    <string name="rate_us_thanks">Thanks for feedback!</string>
-    <string name="rate_us_later">Later</string>
-    <string name="rate_us_rate">Rate</string>
+    <string name="rate_us_btn">Rate</string>
+    <string name="rate_us_rating_good">We like you too!</string>
+    <string name="rate_us_rating_bad">On, no!</string>
+
+    <string name="rate_us_rating_default_descr">We are working hard for a better user experience. We’d greatly appreciate if you can rate us.</string>
+    <string name="rate_us_rating_good_descr">Thanks for your feedback.</string>
+    <string name="rate_us_rating_bad_descr">Please, leave us some feedback.</string>
+
+    <string name="rate_us_arrow_txt">The best we can get :)</string>
+
+    <string name="rate_us_thanks">Thank you for feedback!</string>
+
 </resources>

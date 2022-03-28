@@ -1,6 +1,7 @@
 package com.sdk.rateuslibrary;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +12,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.RatingBar;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,8 @@ import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.Task;
+
+import per.wsj.library.AndRatingBar;
 
 public class RateUs {
 
@@ -77,27 +81,57 @@ public class RateUs {
 
         setLastRequested(activity, System.currentTimeMillis());
 
-        final AlertDialog dialog = new AlertDialog.Builder(activity).create();
-        final View layout = LayoutInflater.from(activity).inflate(R.layout.rate_us,
+        Dialog dialog = new AlertDialog.Builder(activity).create();
+        View layout = LayoutInflater.from(activity).inflate(R.layout.rate_us,
                 null, false);
+        dialog.setContentView(layout);
+        dialog.setCancelable(true);
 
         /* Set transparent background */
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        TextView rate = layout.findViewById(R.id.rate_btn_rate);
-        TextView later = layout.findViewById(R.id.rate_btn_later);
+        Button rate = layout.findViewById(R.id.btn_rate);
+        ImageView emoji = layout.findViewById(R.id.img_emoji);
+        TextView title = layout.findViewById(R.id.txt_rateus_title);
+        TextView descr = layout.findViewById(R.id.txt_rateus_description);
+        TextView text = layout.findViewById(R.id.txt_rateus_text);
+        View container = layout.findViewById(R.id.container_text);
+        AndRatingBar bar = layout.findViewById(R.id.rate_bar);
 
         final String market_app = String.format(MARKET_APP_URL, activity.getPackageName());
         final String market_web = String.format(MARKET_WEB_URL, activity.getPackageName());
 
-        later.setOnClickListener(v -> {
-            dialog.dismiss();
-            if (finish)
-                activity.finish();
+        bar.setOnRatingChangeListener((ratingBar, rating, fromUser) -> {
+
+            text.setVisibility(View.GONE);
+            container.setVisibility(View.VISIBLE);
+
+            switch (Math.round(rating)) {
+                case 5:
+                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_love));
+                    title.setText(R.string.rate_us_rating_good);
+                    descr.setText(R.string.rate_us_rating_good_descr);
+                    break;
+                case 4:
+                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_ok));
+                    title.setText(R.string.rate_us_rating_good);
+                    descr.setText(R.string.rate_us_rating_good_descr);
+                    break;
+                case 3:
+                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_sad));
+                    title.setText(R.string.rate_us_rating_bad);
+                    descr.setText(R.string.rate_us_rating_bad_descr);
+                case 2:
+                case 1:
+                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_cry));
+                    title.setText(R.string.rate_us_rating_bad);
+                    descr.setText(R.string.rate_us_rating_bad_descr);
+                    break;
+            }
+
         });
 
         rate.setOnClickListener(v -> {
-            RatingBar bar = layout.findViewById(R.id.rate_bar);
             if (bar.getRating() > 3F) {
                 setRating(activity, bar.getRating());
 
@@ -135,9 +169,11 @@ public class RateUs {
                     activity.finish();
             }
         });
-
-        dialog.setView(layout);
-        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setOnCancelListener(dg -> {
+            if (finish)
+                activity.finish();
+        });
         dialog.show();
 
     }

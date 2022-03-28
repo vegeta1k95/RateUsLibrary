@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/Apps/RateUsLibrary/app/src/main/res/layout/rate_us.xml" value="0.20885416666666667" />
+        <entry key="..\:/Android/Apps/RateUsLibrary/app/src/main/res/drawable/button_rounded.xml" value="0.2" />
+        <entry key="..\:/Android/Apps/RateUsLibrary/app/src/main/res/drawable/ic_arrow.xml" value="0.2" />
+        <entry key="..\:/Android/Apps/RateUsLibrary/app/src/main/res/drawable/rateus_custom_ratingbar.xml" value="0.2" />
+        <entry key="..\:/Android/Apps/RateUsLibrary/app/src/main/res/drawable/rateus_custom_ratingbar_empty.xml" value="0.2" />
+        <entry key="..\:/Android/Apps/RateUsLibrary/app/src/main/res/drawable/shape_dialog.xml" value="0.2" />
+        <entry key="..\:/Android/Apps/RateUsLibrary/app/src/main/res/layout/rate_us.xml" value="0.25" />
       </map>
     </option>
   </component>

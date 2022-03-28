@@ -122,6 +122,7 @@ public class RateUs {
                     emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_sad));
                     title.setText(R.string.rate_us_rating_bad);
                     descr.setText(R.string.rate_us_rating_bad_descr);
+                    break;
                 case 2:
                 case 1:
                     emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_cry));

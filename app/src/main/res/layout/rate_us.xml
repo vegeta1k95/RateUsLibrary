@@ -85,7 +85,9 @@
             android:numStars="5"
             android:rating="4.0"
             android:stepSize="1.0"
+            app:bgColor="#B9B9B9"
             app:bgDrawable="@drawable/star_off"
+            app:starColor="#FF6B00"
             app:starDrawable="@drawable/star_on"
             app:starSpacing="@dimen/_12sdp" />
 

@@ -6,8 +6,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_360sdp"
-    android:layout_alignParentBottom="true"
-    android:layout_gravity="center_horizontal|bottom"
     android:background="@drawable/rateus_shape_dialog">
 
     <ImageView
@@ -80,16 +78,16 @@
 
         <per.wsj.library.AndRatingBar
             android:id="@+id/rate_bar"
-            android:layout_marginVertical="@dimen/_7sdp"
-            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginVertical="@dimen/_7sdp"
             android:numStars="5"
             android:rating="4.0"
             android:stepSize="1.0"
-            app:starSpacing="@dimen/_12sdp"
             app:bgDrawable="@drawable/star_off"
-            app:starDrawable="@drawable/star_on"/>
+            app:starDrawable="@drawable/star_on"
+            app:starSpacing="@dimen/_12sdp" />
 
         <ImageView
             android:layout_marginStart="-15dp"
@@ -108,15 +106,15 @@
 
         <TextView
             android:id="@+id/txt_rateus_best"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:layout_centerInParent="true"
-            android:text="@string/rate_us_arrow_txt"
-            android:textSize="18sp"
-            android:textColor="#FF6B00"
             android:fontFamily="@font/gilroy_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/rate_us_arrow_txt"
+            android:textColor="#FF6B00"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_toEndOf="@id/txt_rateus_best"
@@ -128,7 +126,7 @@
             app:tint="#FF6B00" />
 
     </RelativeLayout>
-    
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_rate"
         android:fontFamily="@font/gilroy_bold"
@@ -145,4 +143,3 @@
         android:layout_height="@dimen/_50sdp"/>
 
 </RelativeLayout>
-

@@ -10,8 +10,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -81,22 +83,21 @@ public class RateUs {
 
         setLastRequested(activity, System.currentTimeMillis());
 
-        Dialog dialog = new AlertDialog.Builder(activity).create();
-        View layout = LayoutInflater.from(activity).inflate(R.layout.rate_us,
-                null, false);
-        dialog.setContentView(layout);
+        Dialog dialog = new Dialog(activity, R.style.CustomDialog);
         dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.rate_us);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        dialog.show();
 
-        /* Set transparent background */
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        Button rate = layout.findViewById(R.id.btn_rate);
-        ImageView emoji = layout.findViewById(R.id.img_emoji);
-        TextView title = layout.findViewById(R.id.txt_rateus_title);
-        TextView descr = layout.findViewById(R.id.txt_rateus_description);
-        TextView text = layout.findViewById(R.id.txt_rateus_text);
-        View container = layout.findViewById(R.id.container_text);
-        AndRatingBar bar = layout.findViewById(R.id.rate_bar);
+        Button rate = dialog.findViewById(R.id.btn_rate);
+        ImageView emoji = dialog.findViewById(R.id.img_emoji);
+        TextView title = dialog.findViewById(R.id.txt_rateus_title);
+        TextView descr = dialog.findViewById(R.id.txt_rateus_description);
+        TextView text = dialog.findViewById(R.id.txt_rateus_text);
+        View container = dialog.findViewById(R.id.container_text);
+        AndRatingBar bar = dialog.findViewById(R.id.rate_bar);
 
         final String market_app = String.format(MARKET_APP_URL, activity.getPackageName());
         final String market_web = String.format(MARKET_WEB_URL, activity.getPackageName());

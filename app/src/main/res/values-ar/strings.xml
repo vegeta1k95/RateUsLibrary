@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name = "rate_us_btn"> معدل </string>
+     <string name = "rate_us_rating_good"> نحن نحبك أيضًا! </string>
+     <string name = "rate_us_rating_bad"> أوه ، لا! </string>
+
+     <string name = "rate_us_rating_default_descr"> نحن نعمل بجد من أجل تجربة مستخدم أفضل. سنكون ممتنين لو تفضلتم بتقييمنا. </string>
+     <string name = "rate_us_rating_good_descr"> شكرًا على ملاحظاتك. </string>
+     <string name = "rate_us_rating_bad_descr"> من فضلك ، اترك لنا بعض الملاحظات. </string>
+
+     <string name = "rate_us_arrow_txt"> أفضل ما يمكننا الحصول عليه :) </string>
+
+     <string name = "rate_us_thanks"> شكرًا لك على إرسال التعليقات! </string>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="rate_us_btn">Tarifa</string>
+     <string name="rate_us_rating_good">¡También nos gustas!</string>
+     <string name="rate_us_rating_bad">¡Oh, no!</string>
+
+     <string name="rate_us_rating_default_descr">Estamos trabajando duro para una mejor experiencia de usuario. Le agradeceríamos mucho que nos calificara.</string>
+     <string name="rate_us_rating_good_descr">Gracias por sus comentarios.</string>
+     <string name="rate_us_rating_bad_descr">Por favor, déjenos sus comentarios.</string>
+
+     <string name="rate_us_arrow_txt">Lo mejor que podemos conseguir :)</string>
+
+     <string name="rate_us_thanks">¡Gracias por sus comentarios!</string>
+
+</resources>

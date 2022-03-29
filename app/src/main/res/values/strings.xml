@@ -2,7 +2,7 @@
 <resources>
     <string name="rate_us_btn">Rate</string>
     <string name="rate_us_rating_good">We like you too!</string>
-    <string name="rate_us_rating_bad">On, no!</string>
+    <string name="rate_us_rating_bad">Oh, no!</string>
 
     <string name="rate_us_rating_default_descr">We are working hard for a better user experience. We’d greatly appreciate if you can rate us.</string>
     <string name="rate_us_rating_good_descr">Thanks for your feedback.</string>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="rate_us_btn">Bewerten</string>
+     <string name="rate_us_rating_good">Wir mögen dich auch!</string>
+     <string name="rate_us_rating_bad">Oh nein!</string>
+
+     <string name="rate_us_rating_default_descr">Wir arbeiten hart an einer besseren Benutzererfahrung. Wir würden uns sehr freuen, wenn Sie uns bewerten könnten.</string>
+     <string name="rate_us_rating_good_descr">Danke für dein Feedback.</string>
+     <string name="rate_us_rating_bad_descr">Bitte hinterlassen Sie uns Feedback.</string>
+
+     <string name="rate_us_arrow_txt">Das Beste, was wir bekommen können :)</string>
+
+     <string name="rate_us_thanks">Vielen Dank für dein Feedback!</string>
+
+</resources>

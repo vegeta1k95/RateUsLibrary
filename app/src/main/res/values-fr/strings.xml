@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="rate_us_btn">Taux</string>
+     <string name="rate_us_rating_good">Nous vous aimons aussi !</string>
+     <string name="rate_us_rating_bad">Oh, non !</string>
+
+     <string name="rate_us_rating_default_descr">Nous travaillons dur pour une meilleure expérience utilisateur. Nous apprécierions grandement si vous pouviez nous évaluer.</string>
+     <string name="rate_us_rating_good_descr">Merci pour vos commentaires.</string>
+     <string name="rate_us_rating_bad_descr">S\'il vous plaît, laissez-nous vos commentaires.</string>
+
+     <string name="rate_us_arrow_txt">Le meilleur que nous puissions obtenir :)</string>
+
+     <string name="rate_us_thanks">Merci pour vos commentaires !</string>
+
+</resources>

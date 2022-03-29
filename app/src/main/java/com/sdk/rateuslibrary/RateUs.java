@@ -6,20 +6,14 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
@@ -44,11 +38,14 @@ public class RateUs {
         long last = prefs.getLong(LAST_REQUESTED, 0);
 
         if (last == 0) {
+            return true;
+            /*
             try {
                 last = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).firstInstallTime;
             } catch (PackageManager.NameNotFoundException e) {
                 last = now;
             }
+            */
         }
 
         return (int) ((now - last) / (1000 * 60 * 60 * 24)) >= 2;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rate_us_btn">Оценить</string>
+    <string name="rate_us_rating_good">Мы вас тоже любим!</string>
+    <string name="rate_us_rating_bad">О, нет!</string>
+    <string name="rate_us_rating_default_descr">Мы работаем на улчучшением качества!</string>
+    <string name="rate_us_rating_good_descr">Благодарим за отзыв.</string>
+    <string name="rate_us_rating_bad_descr">Пожалуйста, оставьте нам отзыв.</string>
+    <string name="rate_us_arrow_txt">Наилучшая награда :)</string>
+    <string name="rate_us_thanks">Спасибо за ваш отзыв!</string>
+</resources>

@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
@@ -39,16 +41,9 @@ public class RateUs {
 
         if (last == 0) {
             return true;
-            /*
-            try {
-                last = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).firstInstallTime;
-            } catch (PackageManager.NameNotFoundException e) {
-                last = now;
-            }
-            */
         }
 
-        return (int) ((now - last) / (1000 * 60 * 60 * 24)) >= 2;
+        return (int) ((now - last) / (1000 * 60 * 60)) >= 1; // ONE HOUR
     }
 
     private static void setLastRequested(Context context, long timestamp) {
@@ -70,15 +65,17 @@ public class RateUs {
         return prefs.contains(RATE_US);
     }
 
-    public static void showDialog(final Activity activity, boolean finish, boolean ignoreCheck) {
+    public static void showDialog(final Activity activity, boolean doChecks,
+                                  @Nullable Runnable onFinished) {
 
-        if (!ignoreCheck && (isRated(activity) || !isTimeToRequest(activity))) {
-            if (finish)
-                activity.finish();
-            return;
+        if (doChecks) {
+            if (isRated(activity) || !isTimeToRequest(activity)) {
+                if (onFinished != null)
+                    onFinished.run();
+                return;
+            }
+            setLastRequested(activity, System.currentTimeMillis());
         }
-
-        setLastRequested(activity, System.currentTimeMillis());
 
         Dialog dialog = new Dialog(activity, R.style.CustomDialog);
         dialog.setCancelable(true);
@@ -143,8 +140,8 @@ public class RateUs {
                         flow.addOnCompleteListener(t -> {
                             Toast.makeText(activity, R.string.rate_us_thanks, Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
-                            if (finish)
-                                activity.finish();
+                            if (onFinished != null)
+                                onFinished.run();
                         });
                     } else {
                         try {
@@ -156,22 +153,22 @@ public class RateUs {
                         }
 
                         dialog.dismiss();
-                        if (finish)
-                            activity.finish();
+                        if (onFinished != null)
+                            onFinished.run();
                     }
                 });
 
             } else {
                 Toast.makeText(activity, R.string.rate_us_thanks, Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                if (finish)
-                    activity.finish();
+                if (onFinished != null)
+                    onFinished.run();
             }
         });
         dialog.setCanceledOnTouchOutside(true);
         dialog.setOnCancelListener(dg -> {
-            if (finish)
-                activity.finish();
+            if (onFinished != null)
+                onFinished.run();
         });
         dialog.show();
 

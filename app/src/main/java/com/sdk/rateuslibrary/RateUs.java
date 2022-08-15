@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
@@ -65,12 +66,15 @@ public class RateUs {
         return prefs.contains(RATE_US);
     }
 
-    public static void showDialog(final Activity activity, boolean doChecks,
+    public static void showDialog(@Nullable final Activity activity, boolean doChecks,
                                   @Nullable Runnable onFinished) {
+
+        if (activity == null)
+            return;
 
         if (doChecks) {
             if (isRated(activity) || !isTimeToRequest(activity)) {
-                if (onFinished != null)
+                if (onFinished != null && !activity.isDestroyed() && !activity.isFinishing())
                     onFinished.run();
                 return;
             }
@@ -103,23 +107,23 @@ public class RateUs {
 
             switch (Math.round(rating)) {
                 case 5:
-                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_love));
+                    emoji.setImageDrawable(AppCompatResources.getDrawable(activity, R.drawable.emoji_love));
                     title.setText(R.string.rate_us_rating_good);
                     descr.setText(R.string.rate_us_rating_good_descr);
                     break;
                 case 4:
-                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_ok));
+                    emoji.setImageDrawable(AppCompatResources.getDrawable(activity, R.drawable.emoji_ok));
                     title.setText(R.string.rate_us_rating_good);
                     descr.setText(R.string.rate_us_rating_good_descr);
                     break;
                 case 3:
-                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_sad));
+                    emoji.setImageDrawable(AppCompatResources.getDrawable(activity, R.drawable.emoji_sad));
                     title.setText(R.string.rate_us_rating_bad);
                     descr.setText(R.string.rate_us_rating_bad_descr);
                     break;
                 case 2:
                 case 1:
-                    emoji.setImageDrawable(activity.getDrawable(R.drawable.emoji_cry));
+                    emoji.setImageDrawable(AppCompatResources.getDrawable(activity, R.drawable.emoji_cry));
                     title.setText(R.string.rate_us_rating_bad);
                     descr.setText(R.string.rate_us_rating_bad_descr);
                     break;
@@ -140,7 +144,7 @@ public class RateUs {
                         flow.addOnCompleteListener(t -> {
                             Toast.makeText(activity, R.string.rate_us_thanks, Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
-                            if (onFinished != null)
+                            if (onFinished != null && !activity.isDestroyed() && !activity.isFinishing())
                                 onFinished.run();
                         });
                     } else {
@@ -153,7 +157,7 @@ public class RateUs {
                         }
 
                         dialog.dismiss();
-                        if (onFinished != null)
+                        if (onFinished != null && !activity.isDestroyed() && !activity.isFinishing())
                             onFinished.run();
                     }
                 });
@@ -161,13 +165,13 @@ public class RateUs {
             } else {
                 Toast.makeText(activity, R.string.rate_us_thanks, Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                if (onFinished != null)
+                if (onFinished != null && !activity.isDestroyed() && !activity.isFinishing())
                     onFinished.run();
             }
         });
         dialog.setCanceledOnTouchOutside(true);
         dialog.setOnCancelListener(dg -> {
-            if (onFinished != null)
+            if (onFinished != null && !activity.isDestroyed() && !activity.isFinishing())
                 onFinished.run();
         });
         dialog.show();

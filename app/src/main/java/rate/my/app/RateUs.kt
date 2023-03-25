@@ -19,7 +19,7 @@ import com.google.android.play.core.tasks.Task
 import per.wsj.library.AndRatingBar
 import kotlin.math.roundToInt
 
-object RateUs {
+object RateMyApp {
 
     private const val PREFERENCES = "rateus"
     private const val KEY_RATING = "rating"

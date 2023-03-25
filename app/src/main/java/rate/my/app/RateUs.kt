@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.Keep
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManagerFactory
@@ -19,6 +20,7 @@ import com.google.android.play.core.tasks.Task
 import per.wsj.library.AndRatingBar
 import kotlin.math.roundToInt
 
+@Keep
 object RateMyApp {
 
     private const val PREFERENCES = "rateus"
@@ -52,6 +54,8 @@ object RateMyApp {
         return prefs.contains(KEY_RATING)
     }
 
+    @Keep
+    @JvmStatic
     fun showDialog(
         activity: Activity?,
         doChecks: Boolean = false,

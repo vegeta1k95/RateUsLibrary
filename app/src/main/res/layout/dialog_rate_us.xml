@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/_10sdp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@drawable/rateus_shape_dialog"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/img_emoji"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rate_us_4" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false">
+
+        <TextView
+            android:id="@+id/txt_rateus_title"
+            android:text="@string/rate_us_rating_good"
+            android:textSize="27sp"
+            android:textColor="#242424"
+            android:gravity="center"
+            android:fontFamily="@font/gilroy_semibold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txt_rateus_description"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/rate_us_rating_good_descr"
+            android:textSize="20sp"
+            android:textColor="#242424"
+            android:gravity="center"
+            android:fontFamily="@font/gilroy_semibold"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/gilroy_medium"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text="@string/rate_us_arrow_txt"
+                android:textColor="#FE2D55"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/rate_us_arrow"
+                app:tint="#FE2D55" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="-15dp"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star_lines"
+            app:tint="#FE2D55" />
+
+        <per.wsj.library.AndRatingBar
+            android:id="@+id/rate_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:numStars="5"
+            android:rating="4.0"
+            android:stepSize="1.0"
+            app:bgColor="#B9B9B9"
+            app:bgDrawable="@drawable/rate_us_star_outline"
+            app:starColor="#FE2D55"
+            app:starDrawable="@drawable/rate_us_star"
+            app:starSpacing="@dimen/_7sdp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_rate"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/gilroy_bold"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textColor="#ffffff"
+            android:text="@string/rate_us_btn"
+            android:textAllCaps="true"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:background="@drawable/rateus_shape_btn"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_50sdp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

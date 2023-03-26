@@ -8,23 +8,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_10sdp"
-    android:background="@drawable/rateus_shape_dialog"
+    android:background="@android:color/transparent"
     android:clipChildren="false"
     android:clipToPadding="false">
 
-    <ImageView
-        android:id="@+id/img_emoji"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-60dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rate_us_4" />
-
     <LinearLayout
         android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rateus_shape_dialog"
+        android:clipChildren="false"
         android:clipToPadding="false">
+
+        <ImageView
+            android:id="@+id/img_emoji"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rate_us_4" />
 
         <TextView
             android:id="@+id/txt_rateus_title"
@@ -34,7 +39,6 @@
             android:gravity="center"
             android:fontFamily="@font/gilroy_semibold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_30sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

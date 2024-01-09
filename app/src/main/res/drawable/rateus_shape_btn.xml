@@ -3,7 +3,7 @@
     <item android:state_pressed="true" >
         <shape android:shape="rectangle"  >
             <corners android:radius="@dimen/_60sdp" />
-            <solid android:color="#00C395"/>
+            <solid android:color="?attr/rate_us_color_btn"/>
         </shape>
     </item>
     <item android:state_enabled="false">
@@ -15,7 +15,7 @@
     <item >
         <shape android:shape="rectangle"  >
             <corners android:radius="@dimen/_60sdp" />
-            <solid android:color="#00C395"/>
+            <solid android:color="?attr/rate_us_color_btn"/>
         </shape>
     </item>
 </selector>

@@ -92,11 +92,11 @@ object RateMyApp {
             val rating = stars.roundToInt()
 
             val icon = when (rating) {
-                5 -> R.drawable.rate_us_5
-                4 -> R.drawable.rate_us_4
-                3 -> R.drawable.rate_us_3
-                2 -> R.drawable.rate_us_2
-                else -> R.drawable.rate_us_1
+                5 -> R.drawable.rate_five
+                4 -> R.drawable.rate_four
+                3 -> R.drawable.rate_three
+                2 -> R.drawable.rate_two
+                else -> R.drawable.rate_one
             }
 
             val text = when  {

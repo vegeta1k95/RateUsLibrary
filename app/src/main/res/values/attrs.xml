@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="rate_us_color_bg" format="reference|color"/>
+    <attr name="rate_us_color_star_off" format="reference|color"/>
+    <attr name="rate_us_color_text" format="reference|color"/>
+    <attr name="rate_us_color_subtext" format="reference|color"/>
+    <attr name="rate_us_color_accent" format="reference|color"/>
+    <attr name="rate_us_color_btn" format="reference|color"/>
+    <attr name="rate_us_color_btn_text" format="reference|color"/>
+
+</resources>

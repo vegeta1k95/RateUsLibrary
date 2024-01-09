@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/_10sdp"
     android:orientation="vertical"
     android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_10sdp"
-    android:background="@android:color/transparent"
+    android:outlineProvider="none"
     android:clipChildren="false"
-    android:clipToPadding="false">
+    android:clipToPadding="false"
+    android:clipToOutline="false">
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="@dimen/_10sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:outlineProvider="none"
+        android:clipToOutline="false"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:cardBackgroundColor="?attr/rate_us_color_bg"
+        app:cardCornerRadius="@dimen/_400sdp">
+
+        <ImageView
+            android:id="@+id/img_emoji"
+            android:outlineProvider="none"
+            android:layout_margin="@dimen/_7sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rate_four" />
+
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_centerInParent="true"
-        android:layout_marginVertical="@dimen/_20sdp"
+        android:layout_marginTop="-34dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rateus_shape_dialog"
         android:clipChildren="false"
         android:clipToPadding="false">
 
-        <ImageView
-            android:id="@+id/img_emoji"
-            android:layout_gravity="center_horizontal"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rate_us_4" />
-
         <TextView
+            android:layout_marginTop="@dimen/_24sdp"
             android:id="@+id/txt_rateus_title"
             android:text="@string/rate_us_rating_good"
             android:textSize="27sp"
-            android:textColor="#242424"
+            android:textColor="?attr/rate_us_color_text"
             android:gravity="center"
             android:fontFamily="@font/gilroy_semibold"
             android:layout_gravity="center_horizontal"
@@ -47,7 +61,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/rate_us_rating_good_descr"
             android:textSize="20sp"
-            android:textColor="#242424"
+            android:textColor="?attr/rate_us_color_subtext"
             android:gravity="center"
             android:fontFamily="@font/gilroy_semibold"
             android:layout_gravity="center_horizontal"
@@ -67,7 +81,7 @@
                 android:fontFamily="@font/gilroy_medium"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:text="@string/rate_us_arrow_txt"
-                android:textColor="#FE2D55"
+                android:textColor="?attr/rate_us_color_accent"
                 android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -75,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/rate_us_arrow"
-                app:tint="#FE2D55" />
+                app:tint="?attr/rate_us_color_accent" />
 
         </LinearLayout>
 
@@ -87,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/star_lines"
-            app:tint="#FE2D55" />
+            app:tint="?attr/rate_us_color_accent" />
 
         <per.wsj.library.AndRatingBar
             android:id="@+id/rate_bar"
@@ -97,9 +111,9 @@
             android:numStars="5"
             android:rating="4.0"
             android:stepSize="1.0"
-            app:bgColor="#B9B9B9"
+            app:bgColor="?attr/rate_us_color_star_off"
             app:bgDrawable="@drawable/rate_us_star_outline"
-            app:starColor="#FE2D55"
+            app:starColor="?attr/rate_us_color_accent"
             app:starDrawable="@drawable/rate_us_star"
             app:starSpacing="@dimen/_7sdp" />
 
@@ -109,7 +123,7 @@
             android:fontFamily="@font/gilroy_bold"
             android:gravity="center"
             android:textSize="24sp"
-            android:textColor="#ffffff"
+            android:textColor="?attr/rate_us_color_btn_text"
             android:text="@string/rate_us_btn"
             android:textAllCaps="true"
             android:layout_marginVertical="@dimen/_20sdp"
@@ -119,6 +133,4 @@
 
     </LinearLayout>
 
-
-
-</RelativeLayout>
+</LinearLayout>

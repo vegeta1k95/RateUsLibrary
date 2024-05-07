@@ -75,7 +75,7 @@ object RateMyApp {
         dialog.setCanceledOnTouchOutside(true)
         dialog.window!!.requestFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_rate_us)
-        dialog.window!!.setGravity(Gravity.BOTTOM)
+        dialog.window!!.setGravity(Gravity.CENTER)
         dialog.show()
 
         val rate = dialog.findViewById<Button>(R.id.btn_rate)

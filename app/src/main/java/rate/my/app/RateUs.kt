@@ -18,6 +18,7 @@ import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.tasks.Task
 import per.wsj.library.AndRatingBar
+import rate.my.app.databinding.DialogRateUsBinding
 import kotlin.math.roundToInt
 
 @Keep
@@ -70,24 +71,19 @@ object RateMyApp {
             setLastRequested(activity, System.currentTimeMillis())
         }
 
+        val binding = DialogRateUsBinding.inflate(activity.layoutInflater)
         val dialog = Dialog(activity, R.style.CustomDialog)
         dialog.setCancelable(true)
         dialog.setCanceledOnTouchOutside(true)
         dialog.window!!.requestFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dialog_rate_us)
+        dialog.setContentView(binding.root)
         dialog.window!!.setGravity(Gravity.CENTER)
         dialog.show()
-
-        val rate = dialog.findViewById<Button>(R.id.btn_rate)
-        val emoji = dialog.findViewById<ImageView>(R.id.img_emoji)
-        val title = dialog.findViewById<TextView>(R.id.txt_rateus_title)
-        val descr = dialog.findViewById<TextView>(R.id.txt_rateus_description)
-        val bar = dialog.findViewById<AndRatingBar>(R.id.rate_bar)
 
         val marketApp = String.format(MARKET_APP_URL, activity.packageName)
         val marketWeb = String.format(MARKET_WEB_URL, activity.packageName)
 
-        bar.setOnRatingChangeListener { _: AndRatingBar?, stars: Float, _: Boolean ->
+        binding.rateBar.setOnRatingChangeListener { _: AndRatingBar?, stars: Float, _: Boolean ->
 
             val rating = stars.roundToInt()
 
@@ -109,14 +105,14 @@ object RateMyApp {
                 else -> R.string.rate_us_rating_bad_descr
             }
 
-            emoji.setImageDrawable(AppCompatResources.getDrawable(activity, icon))
-            title.setText(text)
-            descr.setText(msg)
+            binding.imgEmoji.setImageDrawable(AppCompatResources.getDrawable(activity, icon))
+            binding.txtRateusTitle.setText(text)
+            binding.txtRateusDescription.setText(msg)
         }
 
-        rate.setOnClickListener {
-            if (bar.rating > 3f) {
-                setRating(activity, bar.rating)
+        binding.btnRate.setOnClickListener {
+            if (binding.rateBar.rating > 3f) {
+                setRating(activity, binding.rateBar.rating)
                 val manager = ReviewManagerFactory.create(activity)
                 val request = manager.requestReviewFlow()
                 request.addOnCompleteListener { task: Task<ReviewInfo?> ->

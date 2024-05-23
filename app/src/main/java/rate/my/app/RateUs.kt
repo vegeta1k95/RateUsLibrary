@@ -72,7 +72,7 @@ object RateMyApp {
         }
 
         val binding = DialogRateUsBinding.inflate(activity.layoutInflater)
-        val dialog = Dialog(activity, R.style.CustomDialog)
+        val dialog = Dialog(activity, R.style.RateUsDialog)
         dialog.setCancelable(true)
         dialog.setCanceledOnTouchOutside(true)
         dialog.window!!.requestFeature(Window.FEATURE_NO_TITLE)

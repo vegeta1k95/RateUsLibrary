@@ -8,15 +8,12 @@ import android.content.Intent
 import android.net.Uri
 import android.view.Gravity
 import android.view.Window
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.Keep
 import androidx.appcompat.content.res.AppCompatResources
+import com.google.android.gms.tasks.Task
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManagerFactory
-import com.google.android.play.core.tasks.Task
 import per.wsj.library.AndRatingBar
 import rate.my.app.databinding.DialogRateUsBinding
 import kotlin.math.roundToInt
@@ -117,7 +114,7 @@ object RateMyApp {
                 val request = manager.requestReviewFlow()
                 request.addOnCompleteListener { task: Task<ReviewInfo?> ->
                     if (task.isSuccessful) {
-                        val reviewInfo = task.result
+                        val reviewInfo = task.result ?: return@addOnCompleteListener
                         val flow = manager.launchReviewFlow(activity, reviewInfo)
                         flow.addOnCompleteListener {
                             Toast.makeText(activity, R.string.rate_us_thanks, Toast.LENGTH_SHORT)
